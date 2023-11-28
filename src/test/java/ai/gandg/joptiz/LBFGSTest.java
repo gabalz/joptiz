@@ -15,6 +15,28 @@ import ai.gandg.joptiz.LBFGS.Status;
 public class LBFGSTest {
   final double TOL = 1e-8;
 
+  @Test public void readmeExampleTest() {
+    class QuadFun implements DifferentiableFunction {
+      @Override
+      public double eval(double[] x) {
+        return 0.5 * (x[0]*x[0] + x[1]*x[1]);
+      }
+      
+      @Override
+      public double eval(double[] x, double[] gradient) {
+        System.arraycopy(x, 0, gradient, 0, x.length);
+        return eval(x);
+      }
+    }
+
+    LBFGS lbfgs = new LBFGS(2, 20);
+    double fOpt = lbfgs.minimize(new QuadFun(), new double[]{-1.0, 2.0});
+    double[] xOpt = lbfgs.getSolutionVector();
+    
+    assertEquals(0.0, fOpt, TOL);
+    assertArrayEquals(new double[]{0.0, 0.0}, xOpt, TOL);
+  }
+
   @Test public void smallQuad1Test() {
     class QuadFun implements DifferentiableFunction {
       final double x0 = 1.0;
