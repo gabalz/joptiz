@@ -12,7 +12,7 @@ Supported optimization algorithms:
 
 ## INSTALLING by Maven
 
-  Use it for your projects by putting the following into you `pom.xml` file:
+  Use it for your projects by putting the following into the `pom.xml` file:
 
   ```
   <dependency>
