@@ -3,24 +3,11 @@
 
 # JOptiZ
 
-JOptiZ is an optimization library implemented in Java providing garbage collection free operations.
-Its aim to rely on minimal dependencies and stay compilable on embedded Java implementations.
+JOptiZ is an optimization library implemented in Java providing garbage collection free operations. Its aim to rely on minimal dependencies and stay compilable on embedded Java implementations.
 
 Supported optimization algorithms:
 
   - Limited-memory Broyden–Fletcher–Goldfarb–Shanno (L-BFGS) algorithm.
-
-## INSTALLING by Maven
-
-  Use it for your projects by putting the following into the `pom.xml` file:
-
-  ```
-  <dependency>
-    <groupId>ai.gandg</groupId>
-    <artifactId>joptiz</artifactId>
-    <version>0.1</version>
-  </dependency>
-  ```
 
 ## USAGE EXAMPLES
 
@@ -50,15 +37,7 @@ Supported optimization algorithms:
   double[] xOpt = lbfgs.getSolutionVector();
   ```
 
-## DOCUMENTATION
-
-  ```
-  mvn javadoc:javadoc
-  ```
-
-  This will generate the API documentation into `target/site/apidocs`.
-
-## COMPILATION using Maven
+## COMPILATION
 
   After manually downloading the source code, it can be compiled by: 
 
@@ -67,6 +46,14 @@ Supported optimization algorithms:
   ```
 
   This will create the `joptiz-<version>.jar` file under the `target` directory.
+
+## DOCUMENTATION
+
+  ```
+  mvn javadoc:javadoc
+  ```
+
+  This will generate the API documentation into `target/site/apidocs`.
 
 ## TESTS AND BENCHMARKS
 
