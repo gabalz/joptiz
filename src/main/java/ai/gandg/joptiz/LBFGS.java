@@ -25,7 +25,7 @@ public class LBFGS {
   private double[][] sMat, yMat;
 
   /**
-   * Possible reasons of termination.
+   * Representation of the possible reasons of termination.
    */
   public static enum Status {
 
@@ -127,7 +127,8 @@ public class LBFGS {
   /**
    * Returns the accuracy tolerance parameter.
    * The minimization terminates when <code>norm2(g)</code>
-   * is less than <code>accuracyTolerance * max(1, norm2(x))</code>.
+   * is less than <code>accuracyTolerance * max(1, norm2(x))</code>,
+   * where <code>g</code> is the gradient and <code>x</code> is the position vector.
    *
    * @return the accuracy tolerance parameter
    */
@@ -138,12 +139,36 @@ public class LBFGS {
   /**
    * Sets the accuracy tolerance parameter.
    * The minimization terminates when <code>norm2(g)</code>
-   * is less than <code>accuracyTolerance * max(1, norm2(x))</code>.
+   * is less than <code>accuracyTolerance * max(1, norm2(x))</code>,
+   * where <code>g</code> is the gradient and <code>x</code> is the position vector.
    *
    * @param accTol the new value of the accuracy tolerance parameter
    */
   public void setAccuracyTolerance(double accTol) {
     this.accTol = accTol;
+  }
+
+  /**
+   * Returns the curve tolerance parameter.
+   * The L-BFGS memory is cleared when the absolute value of <code>dot(s,y)</code>
+   * is smaller than the curve tolerance, where <code>s</code> is the position vector
+   * and <code>y</code> is the gradient differences of the last two optimization steps.
+   *
+   * @return the curve tolerance parameter
+   */
+  public double getCurveTolerance() {
+    return curveTol;
+  }
+
+  /**
+   * Sets the curve tolerance parameter.
+   * The L-BFGS memory is cleared when the absolute value of <code>dot(s,y)</code>
+   * is smaller than the curve tolerance, where <code>s</code> is the position vector
+   * and <code>y</code> is the gradient differences of the last two optimization steps.
+   *
+   * @param the new value of the curve tolerance parameter
+   */
+  public void setCurveTolerance() {
   }
 
   private void allocateWorkspace(int n) {
@@ -173,9 +198,9 @@ public class LBFGS {
   }
 
   /**
-   * Returns the solution vector of the last minimization.
+   * Returns the solution (position) vector of the last minimization.
    *
-   * @return the solution vector of the last minimization
+   * @return the solution (position) vector of the last minimization
    */
   public double[] getSolutionVector() {
     return x;
