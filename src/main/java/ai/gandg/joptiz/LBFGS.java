@@ -166,9 +166,10 @@ public class LBFGS {
    * is smaller than the curve tolerance, where <code>s</code> is the position vector
    * and <code>y</code> is the gradient differences of the last two optimization steps.
    *
-   * @param the new value of the curve tolerance parameter
+   * @param curveTol the new value of the curve tolerance parameter
    */
-  public void setCurveTolerance() {
+  public void setCurveTolerance(double curveTol) {
+    this.curveTol = curveTol;
   }
 
   private void allocateWorkspace(int n) {
