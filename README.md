@@ -78,7 +78,7 @@ Supported optimization algorithms:
   mvn test
   ```
 
-  Running a single test case (e.g., `basicReducedSVD` in `MatrixTests`):
+  Running a single test case (e.g., `himmelblauTest` in `LBFGSTests`):
 
   ```
   mvn -Dtest=LBFGSTests#himmelblauTest test

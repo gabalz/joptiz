@@ -3,15 +3,28 @@ package ai.gandg.joptiz;
 import ai.gandg.joptiz.LineSearch;
 
 
+/**
+ * Implementation of the backtracking line search algorithm.
+ */
 public class BacktrackingLineSearch implements LineSearch {
   private double tau = 0.5;
   private double fvTol = 1e-4;
   private double minStepSize = 1e-16;
   private int nFunEval = 0;
 
+  /**
+   * Constructs a backtracking line search algorithm object with default parameters.
+   */
   public BacktrackingLineSearch() {
   }
 
+  /**
+   * Constructs a backtracking line search algorithm object with the given parameters.
+   *
+   * @param tau the shrinkage parameter
+   * @param funTol the function value tolerance parameter
+   * @param minStepSize the minimum step size
+   */
   public BacktrackingLineSearch(double tau, double funTol, double minStepSize) {
     this.tau = tau;
     this.fvTol = fvTol;
@@ -62,7 +75,7 @@ public class BacktrackingLineSearch implements LineSearch {
   /**
    * Sets the minimum step size.
    * 
-   * @param minstepsize the new value of the minimum step size
+   * @param minStepSize the new value of the minimum step size
    */
   public void setMinimumStepSize(double minStepSize) {
     this.minStepSize = minStepSize;

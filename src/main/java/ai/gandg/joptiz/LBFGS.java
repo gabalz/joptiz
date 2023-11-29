@@ -48,7 +48,7 @@ public class LBFGS {
   /**
    * Constructor of a L-BFGS optimization object.
    *
-   * @param maxMemorysize maximum number of gradients to be stored
+   * @param maxMemorySize maximum number of gradients to be stored
    * @param maxIter maximum number of iterations
    * @param ls the line search algorithm
    */
@@ -61,7 +61,7 @@ public class LBFGS {
   /**
    * Constructor of a L-BFGS optimization object.
    *
-   * @param maxMemorysize maximum number of gradients to be stored
+   * @param maxMemorySize maximum number of gradients to be stored
    * @param maxIter maximum number of iterations
    */
   public LBFGS(int maxMemorySize, int maxIter) {
@@ -117,6 +117,8 @@ public class LBFGS {
 
   /**
    * Sets the line search method.
+   *
+   * @param ls the line search algorithm
    */
   public void setLineSearch(LineSearch ls) {
     this.ls = ls;
@@ -124,7 +126,8 @@ public class LBFGS {
 
   /**
    * Returns the accuracy tolerance parameter.
-   * The minimization terminates when <code>norm2(g) < accuracyTolerance * max(1, norm2(x))</code>.
+   * The minimization terminates when <code>norm2(g)</code>
+   * is less than <code>accuracyTolerance * max(1, norm2(x))</code>.
    *
    * @return the accuracy tolerance parameter
    */
@@ -134,9 +137,10 @@ public class LBFGS {
 
   /**
    * Sets the accuracy tolerance parameter.
-   * The minimization terminates when <code>norm2(g) < accuracyTolerance * max(1, norm2(x))</code>.
+   * The minimization terminates when <code>norm2(g)</code>
+   * is less than <code>accuracyTolerance * max(1, norm2(x))</code>.
    *
-   * @param the new value of the accuracy tolerance parameter
+   * @param accTol the new value of the accuracy tolerance parameter
    */
   public void setAccuracyTolerance(double accTol) {
     this.accTol = accTol;

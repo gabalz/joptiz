@@ -17,10 +17,12 @@ public interface LineSearch {
 
   /**
    * Returns the number of function evluations of the last minimization.
+   *
+   * @return the number of function evluations
    */
   int getNumberOfFunctionEvaluations();
 
-  /*
+  /**
    * Minimize a differentiable function along a search direction.
    *
    * @param fun the function to be minimized
@@ -29,8 +31,8 @@ public interface LineSearch {
    * @param g0 the gradient at the starting point <code>x0</code>
    * @param alpha0 the initial step size
    * @param p the search direction
-   * @param x placeholder for the new point <code>x0 + alpha*p</code>
-   * @return the step size <code>alpha</alpha>
+   * @param x placeholder for the new point <code>x0 + alpha0*p</code>
+   * @return the step size <code>alpha0</code>
    */
   double minimize(DifferentiableFunction fun, double[] x0,
                   double f0, double[] g0, double alpha0,

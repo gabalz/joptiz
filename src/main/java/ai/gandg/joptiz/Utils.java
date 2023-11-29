@@ -4,7 +4,8 @@ import ai.gandg.joptiz.DifferentiableFunction;
 
 
 /** Various utility functions. */
-public class Utils {
+public final class Utils {
+  private Utils() {}
 
   /**
    * Estimates the gradient by forward or backward finite differentiation.
