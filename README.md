@@ -1,4 +1,4 @@
-![ci](https://github.com/gabalz/joptiz/actions/workflows/maven.yml/badge.svg)
+[![Build](https://github.com/gabalz/joptiz/actions/workflows/maven.yml/badge.svg)](https://github.com/gabalz/joptiz/actions/workflows/maven.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # JOptiZ
