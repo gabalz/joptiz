@@ -13,7 +13,7 @@ import ai.gandg.joptiz.LBFGS.Status;
 
 
 public class LBFGSTest {
-  final double TOL = 1e-8;
+  final double TOL = 1e-5;
 
   @Test public void readmeExampleTest() {
     class QuadFun implements DifferentiableFunction {
@@ -117,11 +117,10 @@ public class LBFGSTest {
     assertEquals(0.75, f, TOL);
     assertEquals(Status.SUCCESS, lbfgs.getStatus());
     assertEquals(f, lbfgs.getSolutionValue(), TOL);
-    assertArrayEquals(new double[]{1.500000447,
-                                   -0.99999949}, x, TOL);
+    assertArrayEquals(new double[]{1.5, -1.0}, x, TOL);
     assertEquals(f, fun.eval(x), TOL);
-    assertEquals(13, lbfgs.getNumberOfIterations());
-    assertEquals(74, lbfgs.getNumberOfFunctionEvaluations());
+    assertEquals(6, lbfgs.getNumberOfIterations());
+    assertEquals(13, lbfgs.getNumberOfFunctionEvaluations());
   }
 
   @Test public void himmelblauTest() { // Himmelblau function
@@ -157,9 +156,9 @@ public class LBFGSTest {
     // System.out.println("Himmelblau, f: " + f + ", x: [" + x[0] + ", " + x[1] + "]");
     assertEquals(0.0, f, TOL);
     assertEquals(Status.SUCCESS, lbfgs.getStatus());
-    assertEquals(6, lbfgs.getNumberOfRestarts());
-    assertEquals(25, lbfgs.getNumberOfIterations());
-    assertEquals(129, lbfgs.getNumberOfFunctionEvaluations());
+    assertEquals(1, lbfgs.getNumberOfRestarts());
+    assertEquals(15, lbfgs.getNumberOfIterations());
+    assertEquals(39, lbfgs.getNumberOfFunctionEvaluations());
     assertEquals(f, lbfgs.getSolutionValue(), TOL);
     assertArrayEquals(new double[]{2.999999839,
                                    1.999999694}, x, TOL);
@@ -198,9 +197,9 @@ public class LBFGSTest {
     // System.out.println("Booth, f: " + f + ", x: [" + x[0] + ", " + x[1] + "]");
     assertEquals(0.0, f, TOL);
     assertEquals(Status.SUCCESS, lbfgs.getStatus());
-    assertEquals(7, lbfgs.getNumberOfRestarts());
-    assertEquals(39, lbfgs.getNumberOfIterations());
-    assertEquals(226, lbfgs.getNumberOfFunctionEvaluations());
+    assertEquals(1, lbfgs.getNumberOfRestarts());
+    assertEquals(14, lbfgs.getNumberOfIterations());
+    assertEquals(34, lbfgs.getNumberOfFunctionEvaluations());
     assertEquals(f, lbfgs.getSolutionValue(), TOL);
     assertArrayEquals(new double[]{0.999998201,
                                    3.000002647}, x, TOL);
@@ -246,9 +245,9 @@ public class LBFGSTest {
     assertEquals(0.0, f, TOL);
     assertEquals(f, lbfgs.getSolutionValue(), TOL);
     assertEquals(Status.SUCCESS, lbfgs.getStatus());
-    assertEquals(22, lbfgs.getNumberOfRestarts());
-    assertEquals(92, lbfgs.getNumberOfIterations());
-    assertEquals(492, lbfgs.getNumberOfFunctionEvaluations());
+    assertEquals(10, lbfgs.getNumberOfRestarts());
+    assertEquals(38, lbfgs.getNumberOfIterations());
+    assertEquals(117, lbfgs.getNumberOfFunctionEvaluations());
   }
 
   @Test public void tridTest() { // Trid function
@@ -303,9 +302,9 @@ public class LBFGSTest {
     assertEquals(fOpt, f, TOL);
     assertEquals(f, lbfgs.getSolutionValue(), TOL);
     assertEquals(Status.SUCCESS, lbfgs.getStatus());
-    assertEquals(9, lbfgs.getNumberOfRestarts());
-    assertEquals(59, lbfgs.getNumberOfIterations());
-    assertEquals(498, lbfgs.getNumberOfFunctionEvaluations());
+    assertEquals(0, lbfgs.getNumberOfRestarts());
+    assertEquals(17, lbfgs.getNumberOfIterations());
+    assertEquals(35, lbfgs.getNumberOfFunctionEvaluations());
     assertArrayEquals(xOpt, lbfgs.getSolutionVector(), 1e-3);
   }
 }

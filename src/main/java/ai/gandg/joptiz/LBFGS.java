@@ -343,6 +343,7 @@ public class LBFGS {
     for (int c = 0; c < memSize; ++c) {
       final double beta = rhos[i] * MatOp.dot(yMat[i], p);
       MatOp.addScaled(p, alphas[i] - beta, sMat[i], p); // p += sMat[i] * (alphas[i] - beta)
+      if (++i >= maxMemorySize) { i = 0; }
     }
   }
 }
